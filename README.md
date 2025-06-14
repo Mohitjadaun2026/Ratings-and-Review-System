@@ -248,12 +248,6 @@ cd ..
    The React app will start on `http://localhost:3000`
 
 
-
-3. **Run both services**
-   ```bash
-   npm run dev
-   ```
-
 ---
 
 ## 📡 API Documentation
