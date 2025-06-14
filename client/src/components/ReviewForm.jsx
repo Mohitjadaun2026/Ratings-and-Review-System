@@ -15,7 +15,7 @@ const handleSubmit = e => {
   formData.append('review', review);
   if (imageFile) formData.append('image', imageFile);
 
-  fetch(`http://localhost:5000/api/products/${productId}/reviews`, {
+  fetch(`https://ratings-and-review-system.onrender.com/api/products/${productId}/reviews`, {
     method: 'POST',
     body: formData
   })
