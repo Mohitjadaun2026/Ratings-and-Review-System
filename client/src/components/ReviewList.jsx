@@ -9,13 +9,13 @@ function ReviewList({ productId, refresh }) {
   const [editUsername, setEditUsername] = useState('');
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/products/${productId}/reviews`)
+    fetch(`https://ratings-and-review-system.onrender.com/api/products/${productId}/reviews`)
       .then(res => res.json())
       .then(data => setReviews(data));
   }, [productId, refresh]);
 
   const handleDelete = (reviewId) => {
-    fetch(`http://localhost:5000/api/products/${productId}/reviews/${reviewId}`, {
+    fetch(`https://ratings-and-review-system.onrender.com/api/products/${productId}/reviews/${reviewId}`, {
       method: 'DELETE'
     })
       .then(res => res.json())
@@ -33,7 +33,7 @@ function ReviewList({ productId, refresh }) {
   };
 
   const handleEditSave = (reviewId) => {
-    fetch(`http://localhost:5000/api/products/${productId}/reviews/${reviewId}`, {
+    fetch(`https://ratings-and-review-system.onrender.com/api/products/${productId}/reviews/${reviewId}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -49,7 +49,7 @@ function ReviewList({ productId, refresh }) {
         setEditReview('');
         setEditUsername('');
         // Refresh reviews
-        fetch(`http://localhost:5000/api/products/${productId}/reviews`)
+        fetch(`https://ratings-and-review-system.onrender.com/api/products/${productId}/reviews`)
           .then(res => res.json())
           .then(data => setReviews(data));
         if (typeof refresh === 'function') refresh();
@@ -108,7 +108,7 @@ function ReviewList({ productId, refresh }) {
                 {review.image_url && (
                   <div>
                     <img
-                      src={`http://localhost:5000${review.image_url}`}
+                      src={`https://ratings-and-review-system.onrender.com${review.image_url}`}
                       alt="Review"
                       style={{ maxWidth: '120px', marginTop: '8px', borderRadius: '8px' }}
                     />
